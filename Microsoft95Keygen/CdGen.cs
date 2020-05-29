@@ -7,13 +7,13 @@ namespace Microsoft95Keygen
 {
 	public static class CdGen
 	{
+		private static Random _rand = new Random();
 		public static List<CdKey> Keygen(int count, bool saveToFile = false, string pathToSave = null)
 		{
 			var toReturn = new List<CdKey>();
 			for (int i = 0; i < count; i++)
 			{
-				var key = new CdKey(GenStart(), GenLast());
-				toReturn.Add(key);
+				toReturn.Add(new CdKey(GenStart(), GenLast()));
 			}
 
 			if (saveToFile)
@@ -36,14 +36,13 @@ namespace Microsoft95Keygen
 
 		public static CdKey Keygen() => new CdKey(GenStart(), GenLast());
 
-		private static int GenStart()
+		private static string GenStart()
 		{
-			var rand = new Random();
 			string randNum = string.Empty;
 			tryAgain:
 			for (int i = 0; i < 3; i++)
 			{
-				randNum += rand.Next(0,10).ToString();
+				randNum += _rand.Next(0,10).ToString();
 			}
 
 			if (randNum == "333" || randNum == "444" || randNum == "555" || randNum == "666" || randNum == "777" || randNum == "888" || randNum == "999")
@@ -51,18 +50,17 @@ namespace Microsoft95Keygen
 				randNum = String.Empty;
 				goto tryAgain;
 			} // try again if bad combo
-			return Convert.ToInt32(randNum);
+			return randNum;
 		}
 
-		private static int GenLast()
+		private static string GenLast()
 		{
-			var rand = new Random();
 			string randNum = string.Empty;
 			tryFullAgain:
 			for (int i = 0; i < 7; i++)
 			{
 				tryNumAgain:
-				randNum += rand.Next(0,10).ToString();
+				randNum += _rand.Next(0,10).ToString();
 
 				var product = 0;
 				foreach (var num in randNum)
@@ -79,7 +77,7 @@ namespace Microsoft95Keygen
 				goto tryFullAgain;
 			}
 			
-			return Convert.ToInt32(randNum);
+			return randNum;
 		}
 	}
 }

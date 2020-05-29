@@ -7,6 +7,7 @@ namespace Microsoft95Keygen
 {
 	public static class OemGen
 	{
+		static Random _rand = new Random();
 		public static List<OemKey> Keygen(int count, bool saveToFile = false, string pathToSave = null)
 		{
 			var toReturn = new List<OemKey>();
@@ -36,25 +37,34 @@ namespace Microsoft95Keygen
 		
 		public static OemKey Keygen() => new OemKey(GenFirst(), GenMid(), GenLast());
 
-		public static int GenFirst()
+		public static string GenFirst()
 		{
-			var rand = new Random();
 			var workingString = string.Empty;
-			workingString += rand.Next(001, 367).ToString();
-			workingString += rand.Next(95, 100).ToString(); // could implement numbers 00, 01, 02, 03, and 04 but can't be bothered
-			return Convert.ToInt32(workingString);
+			workingString += _rand.Next(001, 367).ToString();
+
+			switch (workingString.Length)
+			{
+				case 2:
+					workingString = workingString.Insert(0, "0");
+					break;
+				case 1:
+					workingString = workingString.Insert(0, "00");
+					break;
+			}
+			
+			workingString += _rand.Next(95, 100).ToString(); // could implement numbers 00, 01, 02, 03, and 04 but can't be bothered
+			return workingString;
 		}
 		
-		public static int GenMid()
+		public static string GenMid()
 		{
-			var rand = new Random();
 			string randNum = string.Empty;
 			tryFullAgain:
 			randNum += "0";
 			for (int i = 0; i < 6; i++)
 			{
 				tryNumAgain:
-				randNum += rand.Next(0,10).ToString();
+				randNum += _rand.Next(0,10).ToString();
 
 				var product = 0;
 				foreach (var num in randNum)
@@ -71,19 +81,18 @@ namespace Microsoft95Keygen
 				goto tryFullAgain;
 			}
 			
-			return Convert.ToInt32(randNum);
+			return randNum;
 		}
 		
-		public static int GenLast()
+		public static string GenLast()
 		{
-			var rand = new Random();
 			var workingString = string.Empty;
 			for (int i = 0; i < 5; i++)
 			{
-				workingString += rand.Next(0, 10);
+				workingString += _rand.Next(0, 10);
 			}
 
-			return Convert.ToInt32(workingString);
+			return workingString;
 		}
 	}
 }

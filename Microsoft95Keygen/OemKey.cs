@@ -4,14 +4,14 @@ namespace Microsoft95Keygen
 {
 	public class OemKey
 	{
-		public OemKey(int start = 00000, int mid = 0000000, int last = 00000)
+		public OemKey(string start = "00000", string mid = "0000000", string last = "00000")
 			=> SetKey(start, mid, last);
 		
-		private int _firstSection;
-		private int _midSection;
-		private int _lastSection;
+		private string _firstSection;
+		private string _midSection;
+		private string _lastSection;
 
-		public void SetKey(int first, int mid, int last)
+		public void SetKey(string first, string mid, string last)
 		{
 			if (first.ToString().Length == 5)
 				_firstSection = first;
@@ -32,16 +32,13 @@ namespace Microsoft95Keygen
 		public override string ToString()
 			=> $"{_firstSection.ToString()}-OEM-{_midSection.ToString()}-{_lastSection.ToString()}";
 
-		public int GetFirst()
+		public string GetFirst()
 			=> _firstSection;
 
-		public int GetMid()
+		public string GetMid()
 			=> _midSection;
 
-		public int GetLast()
+		public string GetLast()
 			=> _lastSection;
-
-		public int GetNumeric()
-			=> Convert.ToInt32(_firstSection.ToString() + _midSection.ToString() + _lastSection.ToString());
 	}
 }

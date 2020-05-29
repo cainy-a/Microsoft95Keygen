@@ -5,13 +5,13 @@ namespace Microsoft95Keygen
 {
 	public class CdKey
 	{
-		public CdKey(int start = 000, int last = 0000000)
+		public CdKey(string start = "000", string last = "0000000")
 			=> SetKey(start, last);
 
-		private int _firstSection;
-		private int _lastSection;
+		private string _firstSection;
+		private string _lastSection;
 
-		public void SetKey(int first, int last)
+		public void SetKey(string first, string last)
 		{
 			if (first.ToString().Length == 3)
 				_firstSection = first;
@@ -27,13 +27,10 @@ namespace Microsoft95Keygen
 		public override string ToString()
 			=> $"{_firstSection.ToString()}-{_lastSection.ToString()}";
 
-		public int GetFirst()
+		public string GetFirst()
 			=> _firstSection;
 
-		public int GetLast()
+		public string GetLast()
 			=> _lastSection;
-
-		public int GetNumeric()
-			=> Convert.ToInt32(_firstSection.ToString() + _lastSection.ToString());
 	}
 }
