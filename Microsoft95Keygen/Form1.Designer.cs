@@ -79,7 +79,7 @@
 			// 
 			this.checkBoxSave.Location = new System.Drawing.Point(12, 98);
 			this.checkBoxSave.Name = "checkBoxSave";
-			this.checkBoxSave.Size = new System.Drawing.Size(120, 24);
+			this.checkBoxSave.Size = new System.Drawing.Size(112, 24);
 			this.checkBoxSave.TabIndex = 2;
 			this.checkBoxSave.Text = "Save Keys to file?";
 			this.checkBoxSave.UseVisualStyleBackColor = true;
@@ -88,7 +88,7 @@
 			// textBoxPath
 			// 
 			this.textBoxPath.Enabled = false;
-			this.textBoxPath.Location = new System.Drawing.Point(138, 100);
+			this.textBoxPath.Location = new System.Drawing.Point(130, 100);
 			this.textBoxPath.Name = "textBoxPath";
 			this.textBoxPath.Size = new System.Drawing.Size(189, 20);
 			this.textBoxPath.TabIndex = 3;
@@ -96,7 +96,7 @@
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(138, 82);
+			this.label2.Location = new System.Drawing.Point(130, 82);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(100, 15);
 			this.label2.TabIndex = 4;
@@ -106,11 +106,11 @@
 			// numericUpDownAmount
 			// 
 			this.numericUpDownAmount.Enabled = false;
-			this.numericUpDownAmount.Location = new System.Drawing.Point(414, 100);
-			this.numericUpDownAmount.Maximum = new decimal(new int[] {1000, 0, 0, 0});
+			this.numericUpDownAmount.Location = new System.Drawing.Point(397, 100);
+			this.numericUpDownAmount.Maximum = new decimal(new int[] {100000, 0, 0, 0});
 			this.numericUpDownAmount.Minimum = new decimal(new int[] {1, 0, 0, 0});
 			this.numericUpDownAmount.Name = "numericUpDownAmount";
-			this.numericUpDownAmount.Size = new System.Drawing.Size(56, 20);
+			this.numericUpDownAmount.Size = new System.Drawing.Size(73, 20);
 			this.numericUpDownAmount.TabIndex = 5;
 			this.numericUpDownAmount.Value = new decimal(new int[] {1, 0, 0, 0});
 			this.numericUpDownAmount.ValueChanged += new System.EventHandler(this.numericUpDownAmount_ValueChanged);
@@ -120,9 +120,9 @@
 			this.buttonBrowse.Enabled = false;
 			this.buttonBrowse.FlatStyle = System.Windows.Forms.FlatStyle.System;
 			this.buttonBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-			this.buttonBrowse.Location = new System.Drawing.Point(333, 100);
+			this.buttonBrowse.Location = new System.Drawing.Point(325, 100);
 			this.buttonBrowse.Name = "buttonBrowse";
-			this.buttonBrowse.Size = new System.Drawing.Size(75, 19);
+			this.buttonBrowse.Size = new System.Drawing.Size(66, 19);
 			this.buttonBrowse.TabIndex = 6;
 			this.buttonBrowse.Text = "Browse...";
 			this.buttonBrowse.UseVisualStyleBackColor = true;

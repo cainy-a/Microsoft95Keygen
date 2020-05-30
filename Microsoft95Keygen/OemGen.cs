@@ -75,7 +75,7 @@ namespace Microsoft95Keygen
 				}
 			}
 
-			if (randNum[randNum.Length - 1] == '0' || randNum[randNum.Length - 1] == '8' || randNum[randNum.Length - 1] == '9')
+			if (randNum[6] == '0' || randNum[6] == '8' || randNum[6] == '9')
 			{
 				randNum = string.Empty;
 				goto tryFullAgain;

@@ -59,16 +59,15 @@ namespace Microsoft95Keygen
 			tryFullAgain:
 			for (int i = 0; i < 7; i++)
 			{
-				tryNumAgain:
 				randNum += _rand.Next(0,10).ToString();
-
-				var product = 0;
-				foreach (var num in randNum)
-				{
-					product *= Convert.ToInt32(num);
-					if (product % 7 != 0)
-						goto tryNumAgain;
-				}
+			}
+			var testProduct = 1;
+			foreach (var num in randNum)
+			{
+				testProduct *= Convert.ToInt32(num.ToString());
+				if (testProduct % 7 == 0) continue;
+				randNum = String.Empty;
+				goto tryFullAgain;
 			}
 
 			if (randNum[randNum.Length - 1] == '0' || randNum[randNum.Length - 1] == '8' || randNum[randNum.Length - 1] == '9')
